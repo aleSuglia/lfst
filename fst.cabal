@@ -1,0 +1,35 @@
+name:                 fst
+version:              0.1.0.0
+synopsis:             Fuzzy Set Theory library
+-- description:
+-- license:
+-- license-file:
+homepage:
+author:               Marco Di Pietro, Claudio Greco, Corrado Mencar, Alessandro Suglia
+maintainer:           Marco Di Pietro, Claudio Greco, Corrado Mencar, Alessandro Suglia
+category:             Math
+-- copyright:
+build-type:           Simple
+-- extra-source-files:
+cabal-version:        >=1.10
+
+library
+  exposed-modules: FuzzySet, Membership
+  -- other-modules:
+  -- other-extensions:
+  build-depends:        base >= 4.7 && < 5,
+                        containers >= 0.5,
+                        lattices >= 1.5,
+                        doctest >= 0.10
+
+  hs-source-dirs:       FST
+  default-language:     Haskell2010
+
+test-suite doctests
+  type:          exitcode-stdio-1.0
+  ghc-options:   -threaded
+  hs-source-dirs: test
+  main-is:       DocTests.hs
+  build-depends: base >= 4.7 && < 5,
+                 doctest >= 0.10
+  default-language:     Haskell2010
