@@ -1,22 +1,24 @@
 name:                 fst
-version:              1.0.0.0
-synopsis:             Fuzzy Set Theory library
--- description:
--- license:
--- license-file:
-homepage:
+version:              1.0.0
+synopsis:             Fuzzy Set Theory implementation in Haskell
+description:          If X is a collection of objects denoted generically by x, then a fuzzy set F(A) in X is a set of ordered pairs. Each of them consists of an element x and a membership function which maps x to the membership space M. The current implementation is inspired by the work of Goguen, Joseph A. "L-fuzzy sets." Journal of mathematical analysis and applications 18.1 (1967). 
+license:              GPLv3
+license-file:         LICENSE
+homepage:             https://github.com/ci-fst/fst
 author:               Marco Di Pietro, Claudio Greco, Corrado Mencar, Alessandro Suglia
 maintainer:           Marco Di Pietro, Claudio Greco, Corrado Mencar, Alessandro Suglia
-category:             Math
--- copyright:
+bug-reports:          http://github.com/ci-fst/fst.git/issues
+category:             Math          
 build-type:           Simple
--- extra-source-files:
 cabal-version:        >=1.10
-
+tested-with:          GHC==7.10.3
+                      
+source-repository head
+  type: git
+  location: git://github.com/ci-fst/fst.git
+                      
 library
   exposed-modules: FuzzySet, Membership
-  -- other-modules:
-  -- other-extensions:
   build-depends:        base >= 4.7 && < 5,
                         containers >= 0.5,
                         lattices >= 1.5,
