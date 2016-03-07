@@ -16,7 +16,7 @@ let fuzzy_set = fromList [(-1, Z 0.5), (0, Z 0.8), (1, Z 1.0), (2, Z 0.4)]
 
 fmap (^2) fuzzy_set 
 
-> {(0, Z 0.8), (1, Z 1.0), (4, Z 0.4)}
+> FuzzySet {(0, Z 0.8), (1, Z 1.0), (4, Z 0.4)}
 ```
 
 ## Authors
