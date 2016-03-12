@@ -1,7 +1,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 -- | Membership types for the Fuzzy Set definition
-module Membership
+module Algebra.LFST.Membership
 ( GodelMembership (..)
 , GoguenMembership (..)
 , LukasiewiczMembership (..)

@@ -6,7 +6,7 @@
 
 -- | If X is a collection of objects denoted generically by x, then a fuzzy set F(A) in X is a set of ordered pairs.
 -- Each of them consists of an element x and a membership function which maps x to the membership space M.
-module FuzzySet
+module Algebra.LFST.FuzzySet
 ( FuzzySet (..)
 , preimage
 , empty
@@ -35,7 +35,7 @@ import qualified Data.Map        as Map
 import qualified Data.Maybe      as Maybe ()
 
 -- $setup
--- >>> import Membership
+-- >>> import Algebra.LFST.Membership
 -- >>> let godel1 = fromList [(1, Godel 0.2), (2, Godel 0.5)]
 -- >>> let godel2 = fromList [(2, Godel 0.2), (3, Godel 0.2)]
 -- >>> let goguen1 = fromList [(1, Goguen 0.2), (2, Goguen 0.5)]

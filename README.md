@@ -1,4 +1,4 @@
-# fst - Fuzzy Set Theory implementation in Haskell
+# lfst - L-Fuzzy Set Theory implementation in Haskell
 
 ## Description
 
@@ -12,11 +12,11 @@ This library could be easily compiled using **cabal** issuing the command `cabal
 
 Using this library you can easily apply the **Extension Principle** [[2](#fuzzysets)] in the following way:
 ```
-let fuzzy_set = fromList [(-1, Z 0.5), (0, Z 0.8), (1, Z 1.0), (2, Z 0.4)]
+let fuzzy_set = fromList [(-1, Godel 0.5), (0, Godel 0.8), (1, Godel 1.0), (2, Godel 0.4)]
 
 fmap (^2) fuzzy_set 
 
-> FuzzySet {(0, Z 0.8), (1, Z 1.0), (4, Z 0.4)}
+> FuzzySet {(0, Godel 0.8), (1, Godel 1.0), (4, Godel 0.4)}
 ```
 
 ## Authors
@@ -32,4 +32,3 @@ All the following authors have equally contributed to this project (listed in al
 <a name="lfuzzysets">[1]:</a> [Goguen, Joseph A. "L-fuzzy sets." Journal of mathematical analysis and applications (1967)](http://www.sciencedirect.com/science/article/pii/0022247X67901898)
 
 <a name="fuzzysets">[2]:</a> [Zadeh, Lotfi A. "Fuzzy sets." Information and control (1965)](http://www.sciencedirect.com/science/article/pii/S001999586590241X)
-
