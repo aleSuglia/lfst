@@ -2,46 +2,66 @@
 
 -- | Membership types for the Fuzzy Set definition
 module Membership
-( ZadehMembership (..)
-, PAMembership (..)
+( GodelMembership (..)
+, GoguenMembership (..)
+, LukasiewiczMembership (..)
   ) where
 
 import qualified Algebra.Lattice as L
 
--- | Membership value between 0 and 1 with min and max operators
-newtype ZadehMembership = Z Double deriving (Show, Eq, Ord, Num)
+-- | Membership value between 0 and 1 with Godel join and meet operators
+newtype GodelMembership = Godel Double deriving (Show, Eq, Ord, Num)
 
--- | Membership value between 0 and 1 with algebraic sum and product operators
-newtype PAMembership = PA Double deriving (Show, Eq, Ord, Num)
+-- | Membership value between 0 and 1 with Goguen join and meet operators
+newtype GoguenMembership = Goguen Double deriving (Show, Eq, Ord, Num)
 
-instance L.JoinSemiLattice ZadehMembership where
-    Z x \/ Z y = Z (max x y)
+-- | Membership value between 0 and 1 with Lukasiewicz join and meet operators
+newtype LukasiewiczMembership = Lukas Double deriving (Show, Eq, Ord, Num)
 
-instance L.MeetSemiLattice ZadehMembership where
-    Z x /\ Z y = Z (min x y)
+instance L.JoinSemiLattice GodelMembership where
+    Godel x \/ Godel y = Godel (max x y)
 
-instance L.Lattice ZadehMembership where
+instance L.MeetSemiLattice GodelMembership where
+    Godel x /\ Godel y = Godel (min x y)
 
-instance L.BoundedJoinSemiLattice ZadehMembership where
-    bottom = Z 0.0
+instance L.Lattice GodelMembership where
 
-instance L.BoundedMeetSemiLattice ZadehMembership where
-    top = Z 1.0
+instance L.BoundedJoinSemiLattice GodelMembership where
+    bottom = Godel 0.0
 
-instance L.BoundedLattice ZadehMembership where
+instance L.BoundedMeetSemiLattice GodelMembership where
+    top = Godel 1.0
 
-instance L.JoinSemiLattice PAMembership where
-    PA x \/ PA y = PA (x + y - x * y)
+instance L.BoundedLattice GodelMembership where
 
-instance L.MeetSemiLattice PAMembership where
-    PA x /\ PA y = PA (x * y)
+instance L.JoinSemiLattice GoguenMembership where
+    Goguen x \/ Goguen y = Goguen (x + y - x * y)
 
-instance L.Lattice PAMembership where
+instance L.MeetSemiLattice GoguenMembership where
+    Goguen x /\ Goguen y = Goguen (x * y)
 
-instance L.BoundedJoinSemiLattice PAMembership where
-    bottom = PA 0.0
+instance L.Lattice GoguenMembership where
 
-instance L.BoundedMeetSemiLattice PAMembership where
-    top = PA 1.0
+instance L.BoundedJoinSemiLattice GoguenMembership where
+    bottom = Goguen 0.0
 
-instance L.BoundedLattice PAMembership where
+instance L.BoundedMeetSemiLattice GoguenMembership where
+    top = Goguen 1.0
+
+instance L.BoundedLattice GoguenMembership where
+
+instance L.JoinSemiLattice LukasiewiczMembership where
+    Lukas x \/ Lukas y = Lukas (min 1.0 (x + y))
+
+instance L.MeetSemiLattice LukasiewiczMembership where
+    Lukas x /\ Lukas y = Lukas (max 0.0 (x + y - 1))
+
+instance L.Lattice LukasiewiczMembership where
+
+instance L.BoundedJoinSemiLattice LukasiewiczMembership where
+    bottom = Lukas 0.0
+
+instance L.BoundedMeetSemiLattice LukasiewiczMembership where
+    top = Lukas 1.0
+
+instance L.BoundedLattice LukasiewiczMembership where
